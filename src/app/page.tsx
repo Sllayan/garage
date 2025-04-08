@@ -6,7 +6,6 @@ import {
   createColumnHelper,
   flexRender,
   getCoreRowModel,
-  RowPinningState,
   useReactTable,
 } from "@tanstack/react-table";
 import React from "react";
@@ -104,6 +103,63 @@ export default function Home() {
     };
   }, []);
 
+  const sendNotification = (data: MarketProps["pairs"]["IRT"]) => {
+    let n = {
+      title: "Do something",
+      body: "text",
+      icon: "/favicon.ico",
+    };
+    if (data.differences.B_W.benefit < 0) {
+      n = {
+        ...n,
+        body: `Nobitex (${data.nobitex.price.toFixed(
+          2
+        )}IRT) is higher than Bitpin (${data.bitpin.price.toFixed(2)}IRT)`,
+      };
+    }
+    if (data.differences.N_B.benefit < 0) {
+      n = {
+        ...n,
+        body: `Nobitex (${data.nobitex.price.toFixed(
+          2
+        )}IRT) is higher than Wallex (${data.wallex.price.toFixed(2)}IRT)`,
+      };
+    }
+    if (data.differences.N_W.benefit < 0) {
+      n = {
+        ...n,
+        body: `Wallex (${data.wallex.price.toFixed(
+          2
+        )}IRT) is higher than Bitpin (${data.bitpin.price.toFixed(2)}IRT)`,
+      };
+    }
+    if (data.differences.B_W.benefit > 0) {
+      n = {
+        ...n,
+        body: `Bitpin (${data.bitpin.price.toFixed(
+          2
+        )}IRT) is higher than Wallex (${data.wallex.price.toFixed(2)}IRT)`,
+      };
+    }
+    if (data.differences.N_B.benefit > 0) {
+      n = {
+        ...n,
+        body: `Wallex (${data.wallex.price.toFixed(
+          2
+        )}IRT) is higher than Nobitex (${data.nobitex.price.toFixed(2)}IRT)`,
+      };
+    }
+    if (data.differences.N_W.benefit > 0) {
+      n = {
+        ...n,
+        body: `Bitpin (${data.bitpin.price.toFixed(
+          2
+        )}IRT) is higher than Nobitex (${data.nobitex.price.toFixed(2)}IRT)`,
+      };
+    }
+    new Notification(n.title, { body: n.body, icon: n.icon });
+  };
+
   React.useEffect(() => {
     if (socket === null) {
       return;
@@ -114,15 +170,13 @@ export default function Home() {
       });
       socket.on("USDT_MARKET", (event: { content: MarketProps }) => {
         if (
-          Math.abs(event.content.pairs.IRT.differences.N_B.benefit) > 20000000 ||
+          Math.abs(event.content.pairs.IRT.differences.N_B.benefit) >
+            20000000 ||
           Math.abs(event.content.pairs.IRT.differences.N_B.benefit) >
             20000000 ||
           Math.abs(event.content.pairs.IRT.differences.N_W.benefit) > 20000000
         ) {
-          new Notification("Do something", {
-            body: "text",
-            icon: "/favicon.ico",
-          });
+          sendNotification(event.content.pairs.IRT);
         }
         setUsdtMarket(event.content);
       });
