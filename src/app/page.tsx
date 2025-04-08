@@ -464,7 +464,19 @@ export default function Home() {
   ];
 
   const table = useReactTable({
-    data: market,
+    data: market.filter(
+      (item) =>
+        [
+          item.pairs.IRT?.bitpin,
+          item.pairs.IRT?.wallex,
+          item.pairs.IRT?.nobitex,
+        ].filter((value) => value).length > 1 ||
+        [
+          item.pairs.USDT?.bitpin,
+          item.pairs.USDT?.wallex,
+          item.pairs.USDT?.nobitex,
+        ].filter((value) => value).length > 1
+    ),
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
