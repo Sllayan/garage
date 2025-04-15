@@ -282,9 +282,7 @@ export default function Home() {
                 info.getValue() ? Number(info.getValue()).toFixed(0) : "-",
               header: () => (
                 <>
-                  <Badge variant="nobitex" className="mr-2">
-                    N
-                  </Badge>
+                  <Badge variant="nobitex">N</Badge>
                   <Badge variant="bitpin">B</Badge>
                 </>
               ),
@@ -304,9 +302,7 @@ export default function Home() {
                 info.getValue() ? Number(info.getValue()).toFixed(0) : "-",
               header: () => (
                 <>
-                  <Badge variant="nobitex" className="mr-2">
-                    N
-                  </Badge>
+                  <Badge variant="nobitex">N</Badge>
                   <Badge variant="wallex">W</Badge>
                 </>
               ),
@@ -326,9 +322,7 @@ export default function Home() {
                 info.getValue() ? Number(info.getValue()).toFixed(0) : "-",
               header: () => (
                 <>
-                  <Badge variant="bitpin" className="mr-2">
-                    B
-                  </Badge>
+                  <Badge variant="bitpin">B</Badge>
                   <Badge variant="wallex">W</Badge>
                 </>
               ),
@@ -440,9 +434,7 @@ export default function Home() {
                 info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
               header: () => (
                 <>
-                  <Badge variant="nobitex" className="mr-2">
-                    N
-                  </Badge>
+                  <Badge variant="nobitex">N</Badge>
                   <Badge variant="bitpin">B</Badge>
                 </>
               ),
@@ -462,9 +454,7 @@ export default function Home() {
                 info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
               header: () => (
                 <>
-                  <Badge variant="nobitex" className="mr-2">
-                    N
-                  </Badge>
+                  <Badge variant="nobitex">N</Badge>
                   <Badge variant="wallex">W</Badge>
                 </>
               ),
@@ -484,9 +474,7 @@ export default function Home() {
                 info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
               header: () => (
                 <>
-                  <Badge variant="bitpin" className="mr-2">
-                    B
-                  </Badge>
+                  <Badge variant="bitpin">B</Badge>
                   <Badge variant="wallex">W</Badge>
                 </>
               ),
@@ -589,59 +577,59 @@ export default function Home() {
               </td>
               <td>
                 {usdtMarket?.pairs.IRT.nobitex.price
-                  ? Number(usdtMarket?.pairs.IRT.nobitex.price).toFixed(2)
+                  ? Number(usdtMarket?.pairs.IRT.nobitex.price).toFixed(0)
                   : "-"}
               </td>
-              <td>
+              {/* <td>
                 {usdtMarket?.pairs.IRT.nobitex.affordable_value
                   ? Number(
                       usdtMarket?.pairs.IRT.nobitex.affordable_value
-                    ).toFixed(4)
+                    ).toFixed(2)
                   : "-"}
-              </td>
-              <td>
+              </td> */}
+              {/* <td>
                 {usdtMarket?.pairs.IRT.nobitex.fee
                   ? Number(usdtMarket?.pairs.IRT.nobitex.fee).toFixed(4)
                   : "-"}
-              </td>
+              </td> */}
               <td>
                 {usdtMarket?.pairs.IRT.bitpin.price
-                  ? Number(usdtMarket?.pairs.IRT.bitpin.price).toFixed(2)
+                  ? Number(usdtMarket?.pairs.IRT.bitpin.price).toFixed(0)
                   : "-"}
               </td>
-              <td>
+              {/* <td>
                 {usdtMarket?.pairs.IRT.bitpin.affordable_value
                   ? Number(
                       usdtMarket?.pairs.IRT.bitpin.affordable_value
-                    ).toFixed(4)
+                    ).toFixed(2)
                   : "-"}
-              </td>
-              <td>
+              </td> */}
+              {/* <td>
                 {usdtMarket?.pairs.IRT.bitpin.fee
                   ? Number(usdtMarket?.pairs.IRT.bitpin.fee).toFixed(4)
                   : "-"}
-              </td>
+              </td> */}
               <td>
                 {usdtMarket?.pairs.IRT.wallex.price
-                  ? Number(usdtMarket?.pairs.IRT.wallex.price).toFixed(2)
+                  ? Number(usdtMarket?.pairs.IRT.wallex.price).toFixed(0)
                   : "-"}
               </td>
-              <td>
+              {/* <td>
                 {usdtMarket?.pairs.IRT.wallex.affordable_value
                   ? Number(
                       usdtMarket?.pairs.IRT.wallex.affordable_value
-                    ).toFixed(4)
+                    ).toFixed(2)
                   : "-"}
-              </td>
-              <td>
+              </td> */}
+              {/* <td>
                 {usdtMarket?.pairs.IRT.wallex.fee
                   ? Number(usdtMarket?.pairs.IRT.wallex.fee).toFixed(4)
                   : "-"}
-              </td>
+              </td> */}
               <td>
                 {usdtMarket?.pairs.IRT.differences.N_B.price
                   ? Number(usdtMarket?.pairs.IRT.differences.N_B.price).toFixed(
-                      2
+                      0
                     )
                   : "-"}
               </td>
@@ -656,13 +644,13 @@ export default function Home() {
                 {usdtMarket?.pairs.IRT.differences.N_B.benefit
                   ? Number(
                       usdtMarket?.pairs.IRT.differences.N_B.benefit
-                    ).toFixed(4)
+                    ).toFixed(2)
                   : "-"}
               </td>
               <td>
                 {usdtMarket?.pairs.IRT.differences.N_W.price
                   ? Number(usdtMarket?.pairs.IRT.differences.N_W.price).toFixed(
-                      2
+                      0
                     )
                   : "-"}
               </td>
@@ -677,13 +665,13 @@ export default function Home() {
                 {usdtMarket?.pairs.IRT.differences.N_W.benefit
                   ? Number(
                       usdtMarket?.pairs.IRT.differences.N_W.benefit
-                    ).toFixed(4)
+                    ).toFixed(2)
                   : "-"}
               </td>
               <td>
                 {usdtMarket?.pairs.IRT.differences.B_W.price
                   ? Number(usdtMarket?.pairs.IRT.differences.B_W.price).toFixed(
-                      2
+                      0
                     )
                   : "-"}
               </td>
@@ -698,7 +686,7 @@ export default function Home() {
                 {usdtMarket?.pairs.IRT.differences.B_W.benefit
                   ? Number(
                       usdtMarket?.pairs.IRT.differences.B_W.benefit
-                    ).toFixed(4)
+                    ).toFixed(2)
                   : "-"}
               </td>
             </tr>
@@ -713,22 +701,6 @@ export default function Home() {
             </tr>
           ))}
         </tbody>
-        <tfoot>
-          {table.getFooterGroups().map((footerGroup) => (
-            <tr key={footerGroup.id}>
-              {footerGroup.headers.map((header) => (
-                <th key={header.id}>
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.footer,
-                        header.getContext()
-                      )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </tfoot>
       </table>
     </div>
   );
