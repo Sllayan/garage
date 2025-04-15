@@ -186,50 +186,52 @@ export default function Home() {
   const columnHelper = createColumnHelper<MarketProps>();
 
   const columns = [
-    columnHelper.accessor("coin", { cell: (info) => info.getValue() }),
+    columnHelper.accessor("coin", {
+      cell: (info) => <p className="text-sm">{info.getValue()}</p>,
+    }),
     columnHelper.group({
       header: "IRT",
       columns: [
         columnHelper.accessor("pairs.IRT.expensive_exchange", {
           cell: (info) =>
             info.getValue() === "BITPIN" ? (
-              <Badge variant="bitpin">{info.getValue()}</Badge>
+              <Badge variant="bitpin">B</Badge>
             ) : info.getValue() === "WALLEX" ? (
-              <Badge variant="wallex">{info.getValue()}</Badge>
+              <Badge variant="wallex">W</Badge>
             ) : (
-              <Badge variant="nobitex">{info.getValue()}</Badge>
+              <Badge variant="nobitex">N</Badge>
             ),
-          header: "expensive",
+          header: "exp",
         }),
         columnHelper.accessor("pairs.IRT.chip_exchange", {
           cell: (info) =>
             info.getValue() === "BITPIN" ? (
-              <Badge variant="bitpin">{info.getValue()}</Badge>
+              <Badge variant="bitpin">B</Badge>
             ) : info.getValue() === "WALLEX" ? (
-              <Badge variant="wallex">{info.getValue()}</Badge>
+              <Badge variant="wallex">W</Badge>
             ) : (
-              <Badge variant="nobitex">{info.getValue()}</Badge>
+              <Badge variant="nobitex">N</Badge>
             ),
-          header: "chip",
+          header: "chp",
         }),
         columnHelper.group({
           header: "Nobitex",
           columns: [
             columnHelper.accessor("pairs.IRT.nobitex.price", {
               cell: (info) =>
-                info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
+                info.getValue() ? Number(info.getValue()).toFixed(0) : "-",
               header: "price",
             }),
-            columnHelper.accessor("pairs.IRT.nobitex.affordable_value", {
-              cell: (info) =>
-                info.getValue() ? Number(info.getValue()).toFixed(4) : "-",
-              header: "affordable",
-            }),
-            columnHelper.accessor("pairs.IRT.nobitex.fee", {
-              cell: (info) =>
-                info.getValue() ? Number(info.getValue()).toFixed(4) : "-",
-              header: "fee",
-            }),
+            // columnHelper.accessor("pairs.IRT.nobitex.affordable_value", {
+            //   cell: (info) =>
+            //     info.getValue() ? Number(info.getValue()).toFixed(4) : "-",
+            //   header: "afford",
+            // }),
+            // columnHelper.accessor("pairs.IRT.nobitex.fee", {
+            //   cell: (info) =>
+            //     info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
+            //   header: "fee",
+            // }),
           ],
         }),
         columnHelper.group({
@@ -237,19 +239,19 @@ export default function Home() {
           columns: [
             columnHelper.accessor("pairs.IRT.bitpin.price", {
               cell: (info) =>
-                info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
+                info.getValue() ? Number(info.getValue()).toFixed(0) : "-",
               header: "price",
             }),
-            columnHelper.accessor("pairs.IRT.bitpin.affordable_value", {
-              cell: (info) =>
-                info.getValue() ? Number(info.getValue()).toFixed(4) : "-",
-              header: "affordable",
-            }),
-            columnHelper.accessor("pairs.IRT.bitpin.fee", {
-              cell: (info) =>
-                info.getValue() ? Number(info.getValue()).toFixed(4) : "-",
-              header: "fee",
-            }),
+            // columnHelper.accessor("pairs.IRT.bitpin.affordable_value", {
+            //   cell: (info) =>
+            //     info.getValue() ? Number(info.getValue()).toFixed(4) : "-",
+            //   header: "afford",
+            // }),
+            // columnHelper.accessor("pairs.IRT.bitpin.fee", {
+            //   cell: (info) =>
+            //     info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
+            //   header: "fee",
+            // }),
           ],
         }),
         columnHelper.group({
@@ -257,19 +259,19 @@ export default function Home() {
           columns: [
             columnHelper.accessor("pairs.IRT.wallex.price", {
               cell: (info) =>
-                info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
+                info.getValue() ? Number(info.getValue()).toFixed(0) : "-",
               header: "price",
             }),
-            columnHelper.accessor("pairs.IRT.wallex.affordable_value", {
-              cell: (info) =>
-                info.getValue() ? Number(info.getValue()).toFixed(4) : "-",
-              header: "affordable",
-            }),
-            columnHelper.accessor("pairs.IRT.wallex.fee", {
-              cell: (info) =>
-                info.getValue() ? Number(info.getValue()).toFixed(4) : "-",
-              header: "fee",
-            }),
+            // columnHelper.accessor("pairs.IRT.wallex.affordable_value", {
+            //   cell: (info) =>
+            //     info.getValue() ? Number(info.getValue()).toFixed(4) : "-",
+            //   header: "afford",
+            // }),
+            // columnHelper.accessor("pairs.IRT.wallex.fee", {
+            //   cell: (info) =>
+            //     info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
+            //   header: "fee",
+            // }),
           ],
         }),
         columnHelper.group({
@@ -277,12 +279,19 @@ export default function Home() {
           columns: [
             columnHelper.accessor("pairs.IRT.differences.N_B.price", {
               cell: (info) =>
-                info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
-              header: "N-B",
+                info.getValue() ? Number(info.getValue()).toFixed(0) : "-",
+              header: () => (
+                <>
+                  <Badge variant="nobitex" className="mr-2">
+                    N
+                  </Badge>
+                  <Badge variant="bitpin">B</Badge>
+                </>
+              ),
             }),
             columnHelper.accessor("pairs.IRT.differences.N_B.percentage", {
               cell: (info) =>
-                info.getValue() ? `${info.getValue().toFixed(2)}%` : "-",
+                info.getValue() ? `${info.getValue().toFixed(4)}%` : "-",
               header: "%",
             }),
             columnHelper.accessor("pairs.IRT.differences.N_B.benefit", {
@@ -292,12 +301,19 @@ export default function Home() {
             }),
             columnHelper.accessor("pairs.IRT.differences.N_W.price", {
               cell: (info) =>
-                info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
-              header: "N-W",
+                info.getValue() ? Number(info.getValue()).toFixed(0) : "-",
+              header: () => (
+                <>
+                  <Badge variant="nobitex" className="mr-2">
+                    N
+                  </Badge>
+                  <Badge variant="wallex">W</Badge>
+                </>
+              ),
             }),
             columnHelper.accessor("pairs.IRT.differences.N_W.percentage", {
               cell: (info) =>
-                info.getValue() ? `${info.getValue().toFixed(2)}%` : "-",
+                info.getValue() ? `${info.getValue().toFixed(4)}%` : "-",
               header: "%",
             }),
             columnHelper.accessor("pairs.IRT.differences.N_W.benefit", {
@@ -307,12 +323,19 @@ export default function Home() {
             }),
             columnHelper.accessor("pairs.IRT.differences.B_W.price", {
               cell: (info) =>
-                info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
-              header: "B-W",
+                info.getValue() ? Number(info.getValue()).toFixed(0) : "-",
+              header: () => (
+                <>
+                  <Badge variant="bitpin" className="mr-2">
+                    B
+                  </Badge>
+                  <Badge variant="wallex">W</Badge>
+                </>
+              ),
             }),
             columnHelper.accessor("pairs.IRT.differences.B_W.percentage", {
               cell: (info) =>
-                info.getValue() ? `${info.getValue().toFixed(2)}%` : "-",
+                info.getValue() ? `${info.getValue().toFixed(4)}%` : "-",
               header: "%",
             }),
             columnHelper.accessor("pairs.IRT.differences.B_W.benefit", {
@@ -330,24 +353,24 @@ export default function Home() {
         columnHelper.accessor("pairs.USDT.expensive_exchange", {
           cell: (info) =>
             info.getValue() === "BITPIN" ? (
-              <Badge variant="bitpin">{info.getValue()}</Badge>
+              <Badge variant="bitpin">B</Badge>
             ) : info.getValue() === "WALLEX" ? (
-              <Badge variant="wallex">{info.getValue()}</Badge>
+              <Badge variant="wallex">W</Badge>
             ) : (
-              <Badge variant="nobitex">{info.getValue()}</Badge>
+              <Badge variant="nobitex">N</Badge>
             ),
-          header: "expensive",
+          header: "exp",
         }),
         columnHelper.accessor("pairs.USDT.chip_exchange", {
           cell: (info) =>
             info.getValue() === "BITPIN" ? (
-              <Badge variant="bitpin">{info.getValue()}</Badge>
+              <Badge variant="bitpin">B</Badge>
             ) : info.getValue() === "WALLEX" ? (
-              <Badge variant="wallex">{info.getValue()}</Badge>
+              <Badge variant="wallex">W</Badge>
             ) : (
-              <Badge variant="nobitex">{info.getValue()}</Badge>
+              <Badge variant="nobitex">N</Badge>
             ),
-          header: "chip",
+          header: "chp",
         }),
         columnHelper.group({
           header: "Nobitex",
@@ -357,16 +380,16 @@ export default function Home() {
                 info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
               header: "price",
             }),
-            columnHelper.accessor("pairs.USDT.nobitex.affordable_value", {
-              cell: (info) =>
-                info.getValue() ? Number(info.getValue()).toFixed(4) : "-",
-              header: "affordable",
-            }),
-            columnHelper.accessor("pairs.USDT.nobitex.fee", {
-              cell: (info) =>
-                info.getValue() ? Number(info.getValue()).toFixed(4) : "-",
-              header: "fee",
-            }),
+            // columnHelper.accessor("pairs.USDT.nobitex.affordable_value", {
+            //   cell: (info) =>
+            //     info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
+            //   header: "afford",
+            // }),
+            // columnHelper.accessor("pairs.USDT.nobitex.fee", {
+            //   cell: (info) =>
+            //     info.getValue() ? Number(info.getValue()).toFixed(4) : "-",
+            //   header: "fee",
+            // }),
           ],
         }),
         columnHelper.group({
@@ -377,16 +400,16 @@ export default function Home() {
                 info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
               header: "price",
             }),
-            columnHelper.accessor("pairs.USDT.bitpin.affordable_value", {
-              cell: (info) =>
-                info.getValue() ? Number(info.getValue()).toFixed(4) : "-",
-              header: "affordable",
-            }),
-            columnHelper.accessor("pairs.USDT.bitpin.fee", {
-              cell: (info) =>
-                info.getValue() ? Number(info.getValue()).toFixed(4) : "-",
-              header: "fee",
-            }),
+            // columnHelper.accessor("pairs.USDT.bitpin.affordable_value", {
+            //   cell: (info) =>
+            //     info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
+            //   header: "afford",
+            // }),
+            // columnHelper.accessor("pairs.USDT.bitpin.fee", {
+            //   cell: (info) =>
+            //     info.getValue() ? Number(info.getValue()).toFixed(4) : "-",
+            //   header: "fee",
+            // }),
           ],
         }),
         columnHelper.group({
@@ -397,16 +420,16 @@ export default function Home() {
                 info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
               header: "price",
             }),
-            columnHelper.accessor("pairs.USDT.wallex.affordable_value", {
-              cell: (info) =>
-                info.getValue() ? Number(info.getValue()).toFixed(4) : "-",
-              header: "Affordable",
-            }),
-            columnHelper.accessor("pairs.USDT.wallex.fee", {
-              cell: (info) =>
-                info.getValue() ? Number(info.getValue()).toFixed(4) : "-",
-              header: "Fee",
-            }),
+            // columnHelper.accessor("pairs.USDT.wallex.affordable_value", {
+            //   cell: (info) =>
+            //     info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
+            //   header: "afford",
+            // }),
+            // columnHelper.accessor("pairs.USDT.wallex.fee", {
+            //   cell: (info) =>
+            //     info.getValue() ? Number(info.getValue()).toFixed(4) : "-",
+            //   header: "Fee",
+            // }),
           ],
         }),
         columnHelper.group({
@@ -415,11 +438,18 @@ export default function Home() {
             columnHelper.accessor("pairs.USDT.differences.N_B.price", {
               cell: (info) =>
                 info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
-              header: "N-B",
+              header: () => (
+                <>
+                  <Badge variant="nobitex" className="mr-2">
+                    N
+                  </Badge>
+                  <Badge variant="bitpin">B</Badge>
+                </>
+              ),
             }),
             columnHelper.accessor("pairs.USDT.differences.N_B.percentage", {
               cell: (info) =>
-                info.getValue() ? `${info.getValue().toFixed(2)}%` : "-",
+                info.getValue() ? `${info.getValue().toFixed(4)}%` : "-",
               header: "%",
             }),
             columnHelper.accessor("pairs.USDT.differences.N_B.benefit", {
@@ -430,11 +460,18 @@ export default function Home() {
             columnHelper.accessor("pairs.USDT.differences.N_W.price", {
               cell: (info) =>
                 info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
-              header: "N-W",
+              header: () => (
+                <>
+                  <Badge variant="nobitex" className="mr-2">
+                    N
+                  </Badge>
+                  <Badge variant="wallex">W</Badge>
+                </>
+              ),
             }),
             columnHelper.accessor("pairs.USDT.differences.N_W.percentage", {
               cell: (info) =>
-                info.getValue() ? `${info.getValue().toFixed(2)}%` : "-",
+                info.getValue() ? `${info.getValue().toFixed(4)}%` : "-",
               header: "%",
             }),
             columnHelper.accessor("pairs.USDT.differences.N_W.benefit", {
@@ -445,11 +482,18 @@ export default function Home() {
             columnHelper.accessor("pairs.USDT.differences.B_W.price", {
               cell: (info) =>
                 info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
-              header: "B-W",
+              header: () => (
+                <>
+                  <Badge variant="bitpin" className="mr-2">
+                    B
+                  </Badge>
+                  <Badge variant="wallex">W</Badge>
+                </>
+              ),
             }),
             columnHelper.accessor("pairs.USDT.differences.B_W.percentage", {
               cell: (info) =>
-                info.getValue() ? `${info.getValue().toFixed(2)}%` : "-",
+                info.getValue() ? `${info.getValue().toFixed(4)}%` : "-",
               header: "%",
             }),
             columnHelper.accessor("pairs.USDT.differences.B_W.benefit", {
@@ -522,35 +566,25 @@ export default function Home() {
         <tbody>
           {usdtMarket && (
             <tr className="text-center border border-solid">
-              <td>{usdtMarket?.coin}</td>
+              <td>
+                <p className="text-sm">US/IR</p>
+              </td>
               <td>
                 {usdtMarket?.pairs.IRT.expensive_exchange === "BITPIN" ? (
-                  <Badge variant="bitpin">
-                    {usdtMarket?.pairs.IRT.expensive_exchange}
-                  </Badge>
+                  <Badge variant="bitpin">B</Badge>
                 ) : usdtMarket?.pairs.IRT.expensive_exchange === "WALLEX" ? (
-                  <Badge variant="wallex">
-                    {usdtMarket?.pairs.IRT.expensive_exchange}
-                  </Badge>
+                  <Badge variant="wallex">W</Badge>
                 ) : (
-                  <Badge variant="nobitex">
-                    {usdtMarket?.pairs.IRT.expensive_exchange}
-                  </Badge>
+                  <Badge variant="nobitex">N</Badge>
                 )}
               </td>
               <td>
                 {usdtMarket?.pairs.IRT.chip_exchange === "BITPIN" ? (
-                  <Badge variant="bitpin">
-                    {usdtMarket?.pairs.IRT.chip_exchange}
-                  </Badge>
+                  <Badge variant="bitpin">B</Badge>
                 ) : usdtMarket?.pairs.IRT.chip_exchange === "WALLEX" ? (
-                  <Badge variant="wallex">
-                    {usdtMarket?.pairs.IRT.chip_exchange}
-                  </Badge>
+                  <Badge variant="wallex">W</Badge>
                 ) : (
-                  <Badge variant="nobitex">
-                    {usdtMarket?.pairs.IRT.chip_exchange}
-                  </Badge>
+                  <Badge variant="nobitex">N</Badge>
                 )}
               </td>
               <td>
