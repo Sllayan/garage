@@ -282,14 +282,14 @@ export default function Home() {
                 info.getValue() ? Number(info.getValue()).toFixed(0) : "-",
               header: () => (
                 <>
-                  <Badge variant="nobitex">N</Badge>
+                  <Badge variant="nobitex" className="mr-2">N</Badge>
                   <Badge variant="bitpin">B</Badge>
                 </>
               ),
             }),
             columnHelper.accessor("pairs.IRT.differences.N_B.percentage", {
               cell: (info) =>
-                info.getValue() ? `${info.getValue().toFixed(4)}%` : "-",
+                info.getValue() ? `${info.getValue().toFixed(4)}` : "-",
               header: "%",
             }),
             columnHelper.accessor("pairs.IRT.differences.N_B.benefit", {
@@ -302,14 +302,14 @@ export default function Home() {
                 info.getValue() ? Number(info.getValue()).toFixed(0) : "-",
               header: () => (
                 <>
-                  <Badge variant="nobitex">N</Badge>
+                  <Badge variant="nobitex" className="mr-2">N</Badge>
                   <Badge variant="wallex">W</Badge>
                 </>
               ),
             }),
             columnHelper.accessor("pairs.IRT.differences.N_W.percentage", {
               cell: (info) =>
-                info.getValue() ? `${info.getValue().toFixed(4)}%` : "-",
+                info.getValue() ? `${info.getValue().toFixed(4)}` : "-",
               header: "%",
             }),
             columnHelper.accessor("pairs.IRT.differences.N_W.benefit", {
@@ -322,14 +322,14 @@ export default function Home() {
                 info.getValue() ? Number(info.getValue()).toFixed(0) : "-",
               header: () => (
                 <>
-                  <Badge variant="bitpin">B</Badge>
+                  <Badge variant="bitpin" className="mr-2">B</Badge>
                   <Badge variant="wallex">W</Badge>
                 </>
               ),
             }),
             columnHelper.accessor("pairs.IRT.differences.B_W.percentage", {
               cell: (info) =>
-                info.getValue() ? `${info.getValue().toFixed(4)}%` : "-",
+                info.getValue() ? `${info.getValue().toFixed(4)}` : "-",
               header: "%",
             }),
             columnHelper.accessor("pairs.IRT.differences.B_W.benefit", {
@@ -434,14 +434,14 @@ export default function Home() {
                 info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
               header: () => (
                 <>
-                  <Badge variant="nobitex">N</Badge>
+                  <Badge variant="nobitex" className="mr-2">N</Badge>
                   <Badge variant="bitpin">B</Badge>
                 </>
               ),
             }),
             columnHelper.accessor("pairs.USDT.differences.N_B.percentage", {
               cell: (info) =>
-                info.getValue() ? `${info.getValue().toFixed(4)}%` : "-",
+                info.getValue() ? `${info.getValue().toFixed(4)}` : "-",
               header: "%",
             }),
             columnHelper.accessor("pairs.USDT.differences.N_B.benefit", {
@@ -454,14 +454,14 @@ export default function Home() {
                 info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
               header: () => (
                 <>
-                  <Badge variant="nobitex">N</Badge>
+                  <Badge variant="nobitex" className="mr-2">N</Badge>
                   <Badge variant="wallex">W</Badge>
                 </>
               ),
             }),
             columnHelper.accessor("pairs.USDT.differences.N_W.percentage", {
               cell: (info) =>
-                info.getValue() ? `${info.getValue().toFixed(4)}%` : "-",
+                info.getValue() ? `${info.getValue().toFixed(4)}` : "-",
               header: "%",
             }),
             columnHelper.accessor("pairs.USDT.differences.N_W.benefit", {
@@ -474,14 +474,14 @@ export default function Home() {
                 info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
               header: () => (
                 <>
-                  <Badge variant="bitpin">B</Badge>
+                  <Badge variant="bitpin" className="mr-2">B</Badge>
                   <Badge variant="wallex">W</Badge>
                 </>
               ),
             }),
             columnHelper.accessor("pairs.USDT.differences.B_W.percentage", {
               cell: (info) =>
-                info.getValue() ? `${info.getValue().toFixed(4)}%` : "-",
+                info.getValue() ? `${info.getValue().toFixed(4)}` : "-",
               header: "%",
             }),
             columnHelper.accessor("pairs.USDT.differences.B_W.benefit", {
