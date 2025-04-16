@@ -1,7 +1,5 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
-
 import {
   createColumnHelper,
   flexRender,
@@ -195,22 +193,22 @@ export default function Home() {
         columnHelper.accessor("pairs.IRT.expensive_exchange", {
           cell: (info) =>
             info.getValue() === "BITPIN" ? (
-              <Badge variant="bitpin">B</Badge>
+              <div className="h-100% bg-bitpin text-white">B</div>
             ) : info.getValue() === "WALLEX" ? (
-              <Badge variant="wallex">W</Badge>
+              <div className="h-100% bg-wallex text-white">W</div>
             ) : (
-              <Badge variant="nobitex">N</Badge>
+              <div className="h-100% bg-nobitex text-white">N</div>
             ),
           header: "exp",
         }),
         columnHelper.accessor("pairs.IRT.chip_exchange", {
           cell: (info) =>
             info.getValue() === "BITPIN" ? (
-              <Badge variant="bitpin">B</Badge>
+              <div className="h-100% bg-bitpin text-white">B</div>
             ) : info.getValue() === "WALLEX" ? (
-              <Badge variant="wallex">W</Badge>
+              <div className="h-100% bg-wallex text-white">W</div>
             ) : (
-              <Badge variant="nobitex">N</Badge>
+              <div className="h-100% bg-nobitex text-white">N</div>
             ),
           header: "chp",
         }),
@@ -282,8 +280,12 @@ export default function Home() {
                 info.getValue() ? Number(info.getValue()).toFixed(0) : "-",
               header: () => (
                 <>
-                  <Badge variant="nobitex" className="mr-2">N</Badge>
-                  <Badge variant="bitpin">B</Badge>
+                  <div className="inline-block w-1/2 h-100% bg-nobitex text-white">
+                    N
+                  </div>
+                  <div className="inline-block w-1/2 h-100% bg-bitpin text-white">
+                    B
+                  </div>
                 </>
               ),
             }),
@@ -302,8 +304,12 @@ export default function Home() {
                 info.getValue() ? Number(info.getValue()).toFixed(0) : "-",
               header: () => (
                 <>
-                  <Badge variant="nobitex" className="mr-2">N</Badge>
-                  <Badge variant="wallex">W</Badge>
+                  <div className="inline-block w-1/2 h-100% bg-nobitex text-white">
+                    N
+                  </div>
+                  <div className="inline-block w-1/2 h-100% bg-wallex text-white">
+                    W
+                  </div>
                 </>
               ),
             }),
@@ -322,8 +328,12 @@ export default function Home() {
                 info.getValue() ? Number(info.getValue()).toFixed(0) : "-",
               header: () => (
                 <>
-                  <Badge variant="bitpin" className="mr-2">B</Badge>
-                  <Badge variant="wallex">W</Badge>
+                  <div className="inline-block w-1/2 h-100% bg-bitpin text-white">
+                    B
+                  </div>
+                  <div className="inline-block w-1/2 h-100% bg-wallex text-white">
+                    W
+                  </div>
                 </>
               ),
             }),
@@ -347,22 +357,22 @@ export default function Home() {
         columnHelper.accessor("pairs.USDT.expensive_exchange", {
           cell: (info) =>
             info.getValue() === "BITPIN" ? (
-              <Badge variant="bitpin">B</Badge>
+              <div className="h-100% bg-bitpin text-white">B</div>
             ) : info.getValue() === "WALLEX" ? (
-              <Badge variant="wallex">W</Badge>
+              <div className="h-100% bg-wallex text-white">W</div>
             ) : (
-              <Badge variant="nobitex">N</Badge>
+              <div className="h-100% bg-nobitex text-white">N</div>
             ),
           header: "exp",
         }),
         columnHelper.accessor("pairs.USDT.chip_exchange", {
           cell: (info) =>
             info.getValue() === "BITPIN" ? (
-              <Badge variant="bitpin">B</Badge>
+              <div className="h-100% bg-bitpin text-white">B</div>
             ) : info.getValue() === "WALLEX" ? (
-              <Badge variant="wallex">W</Badge>
+              <div className="h-100% bg-wallex text-white">W</div>
             ) : (
-              <Badge variant="nobitex">N</Badge>
+              <div className="h-100% bg-nobitex text-white">N</div>
             ),
           header: "chp",
         }),
@@ -434,8 +444,12 @@ export default function Home() {
                 info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
               header: () => (
                 <>
-                  <Badge variant="nobitex" className="mr-2">N</Badge>
-                  <Badge variant="bitpin">B</Badge>
+                  <div className="inline-block w-1/2 h-100% bg-nobitex text-white">
+                    N
+                  </div>
+                  <div className="inline-block w-1/2 h-100% bg-bitpin text-white">
+                    B
+                  </div>
                 </>
               ),
             }),
@@ -454,8 +468,12 @@ export default function Home() {
                 info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
               header: () => (
                 <>
-                  <Badge variant="nobitex" className="mr-2">N</Badge>
-                  <Badge variant="wallex">W</Badge>
+                  <div className="inline-block w-1/2 h-100% bg-nobitex text-white">
+                    N
+                  </div>
+                  <div className="inline-block w-1/2 h-100% bg-wallex text-white">
+                    W
+                  </div>
                 </>
               ),
             }),
@@ -474,8 +492,12 @@ export default function Home() {
                 info.getValue() ? Number(info.getValue()).toFixed(2) : "-",
               header: () => (
                 <>
-                  <Badge variant="bitpin" className="mr-2">B</Badge>
-                  <Badge variant="wallex">W</Badge>
+                  <div className="inline-block w-1/2 h-100% bg-bitpin text-white">
+                    B
+                  </div>
+                  <div className="inline-block w-1/2 h-100% bg-wallex text-white">
+                    W
+                  </div>
                 </>
               ),
             }),
@@ -514,194 +536,186 @@ export default function Home() {
   });
 
   return (
-    <div>
-      <table>
-        <thead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <th
-                  key={header.id}
-                  colSpan={header.colSpan}
-                  className="text-center border border-solid"
-                  style={{
-                    backgroundColor:
-                      header.column.columnDef.header === "Wallex"
-                        ? "var(--wallex)"
-                        : header.column.columnDef.header === "Bitpin"
-                        ? "var(--bitpin)"
-                        : header.column.columnDef.header === "Nobitex"
-                        ? "var(--nobitex)"
-                        : "var(--geist-background)",
-                    color: ["Wallex", "Bitpin", "Nobitex"].includes(
-                      header.column.columnDef.header as string
-                    )
-                      ? "white"
-                      : "black",
-                  }}
-                >
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {usdtMarket && (
-            <tr className="text-center border border-solid">
-              <td>
-                <p className="text-sm">US/IR</p>
-              </td>
-              <td>
-                {usdtMarket?.pairs.IRT.expensive_exchange === "BITPIN" ? (
-                  <Badge variant="bitpin">B</Badge>
-                ) : usdtMarket?.pairs.IRT.expensive_exchange === "WALLEX" ? (
-                  <Badge variant="wallex">W</Badge>
-                ) : (
-                  <Badge variant="nobitex">N</Badge>
-                )}
-              </td>
-              <td>
-                {usdtMarket?.pairs.IRT.chip_exchange === "BITPIN" ? (
-                  <Badge variant="bitpin">B</Badge>
-                ) : usdtMarket?.pairs.IRT.chip_exchange === "WALLEX" ? (
-                  <Badge variant="wallex">W</Badge>
-                ) : (
-                  <Badge variant="nobitex">N</Badge>
-                )}
-              </td>
-              <td>
-                {usdtMarket?.pairs.IRT.nobitex.price
-                  ? Number(usdtMarket?.pairs.IRT.nobitex.price).toFixed(0)
-                  : "-"}
-              </td>
-              {/* <td>
+    <table>
+      <thead>
+        {table.getHeaderGroups().map((headerGroup) => (
+          <tr key={headerGroup.id}>
+            {headerGroup.headers.map((header) => (
+              <th
+                key={header.id}
+                colSpan={header.colSpan}
+                className="text-center border border-solid"
+                style={{
+                  backgroundColor:
+                    header.column.columnDef.header === "Wallex"
+                      ? "var(--wallex)"
+                      : header.column.columnDef.header === "Bitpin"
+                      ? "var(--bitpin)"
+                      : header.column.columnDef.header === "Nobitex"
+                      ? "var(--nobitex)"
+                      : "var(--geist-background)",
+                  color: ["Wallex", "Bitpin", "Nobitex"].includes(
+                    header.column.columnDef.header as string
+                  )
+                    ? "white"
+                    : "black",
+                }}
+              >
+                {header.isPlaceholder
+                  ? null
+                  : flexRender(
+                      header.column.columnDef.header,
+                      header.getContext()
+                    )}
+              </th>
+            ))}
+          </tr>
+        ))}
+      </thead>
+      <tbody>
+        {usdtMarket && (
+          <tr className="text-center border border-solid">
+            <td>
+              <p className="text-sm">US/IR</p>
+            </td>
+            <td>
+              {usdtMarket?.pairs.IRT.expensive_exchange === "BITPIN" ? (
+                <div className="h-100% bg-bitpin text-white">B</div>
+              ) : usdtMarket?.pairs.IRT.expensive_exchange === "WALLEX" ? (
+                <div className="h-100% bg-wallex text-white">W</div>
+              ) : (
+                <div className="h-100% bg-nobitex text-white">N</div>
+              )}
+            </td>
+            <td>
+              {usdtMarket?.pairs.IRT.chip_exchange === "BITPIN" ? (
+                <div className="h-100% bg-bitpin text-white">B</div>
+              ) : usdtMarket?.pairs.IRT.chip_exchange === "WALLEX" ? (
+                <div className="h-100% bg-wallex text-white">W</div>
+              ) : (
+                <div className="h-100% bg-nobitex text-white">N</div>
+              )}
+            </td>
+            <td>
+              {usdtMarket?.pairs.IRT.nobitex.price
+                ? Number(usdtMarket?.pairs.IRT.nobitex.price).toFixed(0)
+                : "-"}
+            </td>
+            {/* <td>
                 {usdtMarket?.pairs.IRT.nobitex.affordable_value
                   ? Number(
                       usdtMarket?.pairs.IRT.nobitex.affordable_value
                     ).toFixed(2)
                   : "-"}
               </td> */}
-              {/* <td>
+            {/* <td>
                 {usdtMarket?.pairs.IRT.nobitex.fee
                   ? Number(usdtMarket?.pairs.IRT.nobitex.fee).toFixed(4)
                   : "-"}
               </td> */}
-              <td>
-                {usdtMarket?.pairs.IRT.bitpin.price
-                  ? Number(usdtMarket?.pairs.IRT.bitpin.price).toFixed(0)
-                  : "-"}
-              </td>
-              {/* <td>
+            <td>
+              {usdtMarket?.pairs.IRT.bitpin.price
+                ? Number(usdtMarket?.pairs.IRT.bitpin.price).toFixed(0)
+                : "-"}
+            </td>
+            {/* <td>
                 {usdtMarket?.pairs.IRT.bitpin.affordable_value
                   ? Number(
                       usdtMarket?.pairs.IRT.bitpin.affordable_value
                     ).toFixed(2)
                   : "-"}
               </td> */}
-              {/* <td>
+            {/* <td>
                 {usdtMarket?.pairs.IRT.bitpin.fee
                   ? Number(usdtMarket?.pairs.IRT.bitpin.fee).toFixed(4)
                   : "-"}
               </td> */}
-              <td>
-                {usdtMarket?.pairs.IRT.wallex.price
-                  ? Number(usdtMarket?.pairs.IRT.wallex.price).toFixed(0)
-                  : "-"}
-              </td>
-              {/* <td>
+            <td>
+              {usdtMarket?.pairs.IRT.wallex.price
+                ? Number(usdtMarket?.pairs.IRT.wallex.price).toFixed(0)
+                : "-"}
+            </td>
+            {/* <td>
                 {usdtMarket?.pairs.IRT.wallex.affordable_value
                   ? Number(
                       usdtMarket?.pairs.IRT.wallex.affordable_value
                     ).toFixed(2)
                   : "-"}
               </td> */}
-              {/* <td>
+            {/* <td>
                 {usdtMarket?.pairs.IRT.wallex.fee
                   ? Number(usdtMarket?.pairs.IRT.wallex.fee).toFixed(4)
                   : "-"}
               </td> */}
-              <td>
-                {usdtMarket?.pairs.IRT.differences.N_B.price
-                  ? Number(usdtMarket?.pairs.IRT.differences.N_B.price).toFixed(
-                      0
-                    )
-                  : "-"}
+            <td>
+              {usdtMarket?.pairs.IRT.differences.N_B.price
+                ? Number(usdtMarket?.pairs.IRT.differences.N_B.price).toFixed(0)
+                : "-"}
+            </td>
+            <td>
+              {usdtMarket?.pairs.IRT.differences.N_B.percentage
+                ? Number(
+                    usdtMarket?.pairs.IRT.differences.N_B.percentage
+                  ).toFixed(4)
+                : "-"}
+            </td>
+            <td>
+              {usdtMarket?.pairs.IRT.differences.N_B.benefit
+                ? Number(usdtMarket?.pairs.IRT.differences.N_B.benefit).toFixed(
+                    2
+                  )
+                : "-"}
+            </td>
+            <td>
+              {usdtMarket?.pairs.IRT.differences.N_W.price
+                ? Number(usdtMarket?.pairs.IRT.differences.N_W.price).toFixed(0)
+                : "-"}
+            </td>
+            <td>
+              {usdtMarket?.pairs.IRT.differences.N_W.percentage
+                ? Number(
+                    usdtMarket?.pairs.IRT.differences.N_W.percentage
+                  ).toFixed(4)
+                : "-"}
+            </td>
+            <td>
+              {usdtMarket?.pairs.IRT.differences.N_W.benefit
+                ? Number(usdtMarket?.pairs.IRT.differences.N_W.benefit).toFixed(
+                    2
+                  )
+                : "-"}
+            </td>
+            <td>
+              {usdtMarket?.pairs.IRT.differences.B_W.price
+                ? Number(usdtMarket?.pairs.IRT.differences.B_W.price).toFixed(0)
+                : "-"}
+            </td>
+            <td>
+              {usdtMarket?.pairs.IRT.differences.B_W.percentage
+                ? Number(
+                    usdtMarket?.pairs.IRT.differences.B_W.percentage
+                  ).toFixed(4)
+                : "-"}
+            </td>
+            <td>
+              {usdtMarket?.pairs.IRT.differences.B_W.benefit
+                ? Number(usdtMarket?.pairs.IRT.differences.B_W.benefit).toFixed(
+                    2
+                  )
+                : "-"}
+            </td>
+          </tr>
+        )}
+        {table.getRowModel().rows.map((row) => (
+          <tr key={row.id} className="text-center border border-solid">
+            {row.getVisibleCells().map((cell) => (
+              <td key={cell.id} className="text-center border border-solid">
+                {flexRender(cell.column.columnDef.cell, cell.getContext())}
               </td>
-              <td>
-                {usdtMarket?.pairs.IRT.differences.N_B.percentage
-                  ? Number(
-                      usdtMarket?.pairs.IRT.differences.N_B.percentage
-                    ).toFixed(4)
-                  : "-"}
-              </td>
-              <td>
-                {usdtMarket?.pairs.IRT.differences.N_B.benefit
-                  ? Number(
-                      usdtMarket?.pairs.IRT.differences.N_B.benefit
-                    ).toFixed(2)
-                  : "-"}
-              </td>
-              <td>
-                {usdtMarket?.pairs.IRT.differences.N_W.price
-                  ? Number(usdtMarket?.pairs.IRT.differences.N_W.price).toFixed(
-                      0
-                    )
-                  : "-"}
-              </td>
-              <td>
-                {usdtMarket?.pairs.IRT.differences.N_W.percentage
-                  ? Number(
-                      usdtMarket?.pairs.IRT.differences.N_W.percentage
-                    ).toFixed(4)
-                  : "-"}
-              </td>
-              <td>
-                {usdtMarket?.pairs.IRT.differences.N_W.benefit
-                  ? Number(
-                      usdtMarket?.pairs.IRT.differences.N_W.benefit
-                    ).toFixed(2)
-                  : "-"}
-              </td>
-              <td>
-                {usdtMarket?.pairs.IRT.differences.B_W.price
-                  ? Number(usdtMarket?.pairs.IRT.differences.B_W.price).toFixed(
-                      0
-                    )
-                  : "-"}
-              </td>
-              <td>
-                {usdtMarket?.pairs.IRT.differences.B_W.percentage
-                  ? Number(
-                      usdtMarket?.pairs.IRT.differences.B_W.percentage
-                    ).toFixed(4)
-                  : "-"}
-              </td>
-              <td>
-                {usdtMarket?.pairs.IRT.differences.B_W.benefit
-                  ? Number(
-                      usdtMarket?.pairs.IRT.differences.B_W.benefit
-                    ).toFixed(2)
-                  : "-"}
-              </td>
-            </tr>
-          )}
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id} className="text-center border border-solid">
-              {row.getVisibleCells().map((cell) => (
-                <td key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 }
